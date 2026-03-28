@@ -1,0 +1,73 @@
+title: "Ing. Electronico | Laboratorio y Automatizacion"
+description: "Sitio personal de ingenieria electronica, automatizacion industrial, hardware y desarrollo de software."
+url: ""
+baseurl: ""
+lang: "es-AR"
+timezone: "America/Argentina/Buenos_Aires"
+
+markdown: kramdown
+permalink: /blog/:title/
+
+author:
+  name: "Facundo Olmedo"
+  company: "Retrofitter S.R.L."
+
+contact:
+  email: "ofacundo785@gmail.com"
+  city: "Cordoba"
+  country: "Argentina"
+  whatsapp_url: "https://api.whatsapp.com/send?text=Hola%20Facundo%2C%20quiero%20consultarte%20por%20servicios%20o%20packs%20tecnicos."
+
+collections:
+  projects:
+    output: true
+    permalink: /proyectos/:name/
+  services:
+    output: true
+    permalink: /servicios/:name/
+  courses:
+    output: true
+    permalink: /cursos/:name/
+  products:
+    output: true
+    permalink: /tienda/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "page"
+      section_title: "Blog"
+  - scope:
+      path: ""
+      type: "projects"
+    values:
+      layout: "page"
+      section_title: "Proyecto"
+  - scope:
+      path: ""
+      type: "services"
+    values:
+      layout: "page"
+      section_title: "Servicio"
+  - scope:
+      path: ""
+      type: "courses"
+    values:
+      layout: "page"
+      section_title: "Curso"
+  - scope:
+      path: ""
+      type: "products"
+    values:
+      layout: "page"
+      section_title: "Producto"
+
+plugins:
+  - jekyll-feed
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
