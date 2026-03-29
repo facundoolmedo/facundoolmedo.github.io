@@ -3,6 +3,8 @@ layout: page
 title: Blog
 permalink: /blog/
 lead: "Publicaciones tecnicas sobre automatizacion, electronica y desarrollo de productos."
+title_i18n: pageBlogTitle
+lead_i18n: pageBlogLead
 ---
 
 <div class="row g-3">

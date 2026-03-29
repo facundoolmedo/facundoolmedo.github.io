@@ -3,6 +3,8 @@ layout: page
 title: Proyectos
 permalink: /proyectos/
 lead: "Automatizacion industrial, diseño de hardware y sistemas embebidos aplicados a produccion."
+title_i18n: pageProjectsTitle
+lead_i18n: pageProjectsLead
 ---
 
 <div class="row g-3">

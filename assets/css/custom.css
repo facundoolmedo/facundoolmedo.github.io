@@ -1,12 +1,23 @@
 :root {
-  --bg-main: #0b1e2d;
-  --bg-soft: #12344f;
+  --bg-main: #050505;
+  --bg-soft: #121212;
   --accent: #f28705;
   --accent-2: #f25f29;
   --text-main: #f4f8fb;
-  --text-soft: #c0d2df;
+  --text-soft: #d7e3ec;
   --card: rgba(255, 255, 255, 0.06);
   --border: rgba(255, 255, 255, 0.18);
+}
+
+body[data-theme="light"] {
+  --bg-main: #f2f6fb;
+  --bg-soft: #dce7f2;
+  --accent: #d76700;
+  --accent-2: #cc4e22;
+  --text-main: #122032;
+  --text-soft: #22384c;
+  --card: rgba(255, 255, 255, 0.72);
+  --border: rgba(17, 38, 60, 0.2);
 }
 
 * {
@@ -17,8 +28,8 @@ body {
   font-family: "Space Grotesk", sans-serif;
   color: var(--text-main);
   background:
-    radial-gradient(circle at 8% 10%, rgba(242, 95, 41, 0.25), transparent 38%),
-    radial-gradient(circle at 92% 90%, rgba(242, 135, 5, 0.25), transparent 40%),
+    radial-gradient(circle at 8% 10%, color-mix(in srgb, var(--accent-2) 35%, transparent), transparent 38%),
+    radial-gradient(circle at 92% 90%, color-mix(in srgb, var(--accent) 32%, transparent), transparent 40%),
     linear-gradient(160deg, var(--bg-main), var(--bg-soft));
   min-height: 100vh;
 }
@@ -44,7 +55,7 @@ a:hover {
 }
 
 .nav-glass {
-  background: rgba(6, 18, 29, 0.72);
+  background: color-mix(in srgb, var(--bg-main) 82%, transparent);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
 }
@@ -56,6 +67,15 @@ a:hover {
 
 .nav-link:hover {
   color: #ffe5bf !important;
+}
+
+.navbar-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  display: block;
 }
 
 .btn-brand {
@@ -80,14 +100,167 @@ a:hover {
   color: #fff;
 }
 
+.btn-control {
+  min-width: 68px;
+}
+
 .hero {
-  padding: 5rem 0 3rem;
+  padding: 2.5rem 0 3rem;
 }
 
 .hero-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--border);
   border-radius: 1.2rem;
+}
+
+/* Override Bootstrap grey text classes with theme-aware, high-contrast values */
+.text-secondary {
+  color: var(--text-soft) !important;
+}
+
+.text-light {
+  color: var(--text-soft) !important;
+}
+
+.text-secondary-emphasis {
+  color: var(--text-soft) !important;
+}
+
+body[data-theme="light"] .hero-card,
+body[data-theme="light"] .metric,
+body[data-theme="light"] .content-card,
+body[data-theme="light"] .tile,
+body[data-theme="light"] .listing-card {
+  box-shadow: 0 10px 24px rgba(12, 34, 54, 0.08);
+}
+
+.profile-frame {
+  width: min(260px, 100%);
+  aspect-ratio: 1/1;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(120deg, rgba(242, 135, 5, 0.2), rgba(242, 95, 41, 0.2));
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.8rem;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+
+.map-card img:not(.leaflet-tile) {
+  width: 100%;
+  border-radius: 0.8rem;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.coverage-map {
+  width: calc(100% + 3rem);   /* offset Bootstrap p-4 (1.5rem each side) */
+  margin-left: -1.5rem;
+  margin-right: -1.5rem;
+  aspect-ratio: 2 / 1;
+  border-radius: 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .coverage-map {
+    width: calc(100% + 6rem);  /* offset Bootstrap p-md-5 (3rem each side) */
+    margin-left: -3rem;
+    margin-right: -3rem;
+  }
+}
+
+.leaflet-container {
+  background: #0a0a0a;
+}
+
+/* Fix tile seam grid artifact in some browsers */
+.leaflet-tile {
+  image-rendering: pixelated;
+}
+.leaflet-tile-container img {
+  width: 256.5px !important;
+  height: 256.5px !important;
+}
+
+.leaflet-control-zoom a {
+  background: rgba(12, 12, 12, 0.85);
+  color: #ffe5bf;
+  border-bottom-color: rgba(255, 220, 175, 0.25);
+}
+
+.leaflet-control-zoom a:hover {
+  background: rgba(32, 32, 32, 0.95);
+  color: #fff7e8;
+}
+
+.leaflet-tooltip.coverage-tooltip {
+  border: 1px solid rgba(255, 210, 148, 0.6);
+  background: rgba(20, 20, 20, 0.9);
+  color: #fff8ea;
+  border-radius: 999px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  padding: 0.22rem 0.5rem;
+}
+
+body[data-theme="light"] .leaflet-container {
+  background: #e9f1f8;
+}
+
+body[data-theme="light"] .leaflet-control-zoom a {
+  background: rgba(255, 255, 255, 0.96);
+  color: #1f3a52;
+  border-bottom-color: rgba(17, 38, 60, 0.2);
+}
+
+body[data-theme="light"] .leaflet-control-zoom a:hover {
+  background: #ffffff;
+  color: #0f2a42;
+}
+
+body[data-theme="light"] .leaflet-tooltip.coverage-tooltip {
+  border: 1px solid rgba(143, 74, 15, 0.45);
+  background: rgba(255, 255, 255, 0.94);
+  color: #21384f;
+}
+
+body[data-theme="light"] a {
+  color: #9e4300;
+}
+
+body[data-theme="light"] a:hover {
+  color: #7f3300;
+}
+
+body[data-theme="light"] .nav-link:hover {
+  color: #8e3a00 !important;
+}
+
+body[data-theme="light"] .eyebrow {
+  color: #8c3900;
+}
+
+body[data-theme="light"] .btn-outline-brand {
+  border-color: rgba(156, 67, 0, 0.65);
+  color: #8f3a00;
+}
+
+body[data-theme="light"] .btn-outline-brand:hover {
+  background: rgba(156, 67, 0, 0.14);
+  color: #6f2c00;
+}
+
+.coverage-list li {
+  margin-bottom: 0.35rem;
 }
 
 .eyebrow {
@@ -134,6 +307,12 @@ a:hover {
   border: 1px solid rgba(255, 187, 101, 0.35);
 }
 
+body[data-theme="light"] .badge-tech {
+  background: rgba(140, 57, 0, 0.14);
+  color: #6f2c00;
+  border-color: rgba(140, 57, 0, 0.4);
+}
+
 .timeline {
   border-left: 2px solid rgba(255, 255, 255, 0.24);
   padding-left: 1.2rem;
@@ -159,6 +338,14 @@ footer {
   color: var(--text-soft);
 }
 
+body[data-theme="light"] .text-light {
+  color: #22384f !important;
+}
+
+body[data-theme="light"] .text-secondary {
+  color: #4e667d !important;
+}
+
 @keyframes reveal {
   from {
     opacity: 0;
@@ -174,4 +361,6 @@ footer {
   .hero {
     padding-top: 3.6rem;
   }
+
+
 }

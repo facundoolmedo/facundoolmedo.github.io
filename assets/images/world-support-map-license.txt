@@ -1,0 +1,5 @@
+Source: https://commons.wikimedia.org/wiki/File:World_map_blank_without_borders.svg
+Direct file: https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg
+Author: Crates (and subsequent optimizations listed on Wikimedia Commons)
+License: CC BY-SA 4.0 (also available under other listed licenses on source page)
+Attribution example: "World map blank without borders" by Crates, via Wikimedia Commons, CC BY-SA 4.0.

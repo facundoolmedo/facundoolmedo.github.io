@@ -133,3 +133,33 @@ Usar `plantillas/plantilla-producto-tienda.md` para publicar nuevos packs en `_p
 5. Guardar.
 
 GitHub Pages compila Jekyll automaticamente.
+
+## Personalizacion rapida
+
+### Cambiar navbar
+
+Editar `_includes/navbar.html`.
+
+### Cambiar footer
+
+Editar `_includes/footer.html`.
+
+### Cambiar foto de perfil en home
+
+1. Reemplazar `assets/images/profile-placeholder.svg` por tu imagen (por ejemplo `profile.jpg`).
+2. Actualizar el `src` de la imagen en `index.md`.
+
+### Mapa mundial (SVG externo)
+
+- Archivo actual: `assets/images/world-support-map.svg`
+- Datos/licencia: `assets/images/world-support-map-license.txt`
+
+### Idioma EN/ES
+
+- Los botones y textos principales usan `assets/js/site.js`.
+- Para agregar nuevas traducciones, sumar claves en el objeto `translations` y usar `data-i18n="clave"` en el HTML.
+
+### Tema oscuro/claro
+
+- El boton de tema esta en `_includes/navbar.html`.
+- Las variables de color se controlan en `assets/css/custom.css` con `:root` y `body[data-theme="light"]`.

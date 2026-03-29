@@ -1,19 +1,27 @@
 <nav class="navbar navbar-expand-lg sticky-top nav-glass py-3">
   <div class="container">
-    <a class="navbar-brand fw-bold" href="{{ '/' | relative_url }}">Ing. Electronico AR</a>
+    <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="{{ '/' | relative_url }}">
+      <img src="{{ '/assets/images/profile-placeholder.svg' | relative_url }}" class="navbar-avatar" alt="Facundo Olmedo">
+      <span data-i18n="brandTitle">Facundo Olmedo</span>
+    </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="{{ '/experiencia/' | relative_url }}">Experiencia</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ '/proyectos/' | relative_url }}">Proyectos</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ '/estudios/' | relative_url }}">Estudios</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ '/cursos/' | relative_url }}">Cursos</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ '/servicios/' | relative_url }}">Servicios</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ '/tienda/' | relative_url }}">Tienda</a></li>
-        <li class="nav-item"><a class="nav-link" href="{{ '/blog/' | relative_url }}">Blog</a></li>
-        <li class="nav-item"><a class="btn btn-brand ms-lg-3" href="{{ '/contacto/' | relative_url }}">Contacto</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/proyectos/' | relative_url }}" data-i18n="navProjects">Projects</a></li>
+        <!-- <li class="nav-item"><a class="nav-link" href="{{ '/estudios/' | relative_url }}" data-i18n="navEducation">Education</a></li> -->
+        <li class="nav-item"><a class="nav-link" href="{{ '/cursos/' | relative_url }}" data-i18n="navCourses">Courses</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/servicios/' | relative_url }}" data-i18n="navServices">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/tienda/' | relative_url }}" data-i18n="navStore">Store</a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ '/blog/' | relative_url }}" data-i18n="navBlog">Blog</a></li>
+        <li class="nav-item"><a class="btn btn-brand ms-lg-3" href="{{ '/contacto/' | relative_url }}" data-i18n="navContact">Contact</a></li>
+        <li class="nav-item d-flex align-items-center ms-lg-2 mt-2 mt-lg-0">
+          <button id="language-toggle" class="btn btn-outline-brand btn-control" type="button" aria-label="Switch language">ES</button>
+        </li>
+        <li class="nav-item d-flex align-items-center ms-lg-2 mt-2 mt-lg-0">
+          <button id="theme-toggle" class="btn btn-outline-brand btn-control" type="button" data-i18n="themeDark" aria-label="Switch theme">Dark</button>
+        </li>
       </ul>
     </div>
   </div>

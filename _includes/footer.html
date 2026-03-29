@@ -1,12 +1,12 @@
 <footer class="py-5 mt-5 border-top border-dark-subtle">
   <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
     <div>
-      <h2 class="h5 mb-1">Laboratorio de Ingenieria Aplicada</h2>
-      <p class="mb-0 text-secondary">Automatizacion industrial, electronica y software para soluciones reales.</p>
+      <h2 class="h5 mb-1" data-i18n="footerTitle">Applied Engineering Lab</h2>
+      <p class="mb-0 text-secondary" data-i18n="footerSubtitle">Industrial automation, electronics, and software for real-world solutions.</p>
     </div>
     <div class="text-md-end">
       <p class="mb-1 text-secondary">{{ site.author.company }}</p>
-      <p class="mb-0 text-secondary">{{ 'now' | date: '%Y' }} - Hecho con Jekyll + Bootstrap</p>
+      <p class="mb-0 text-secondary"><span>{{ 'now' | date: '%Y' }}</span> - <span data-i18n="footerBuilt">Built with Jekyll + Bootstrap</span></p>
     </div>
   </div>
 </footer>

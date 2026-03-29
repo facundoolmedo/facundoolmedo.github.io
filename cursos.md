@@ -3,6 +3,8 @@ layout: page
 title: Cursos
 permalink: /cursos/
 lead: "Formacion tecnica para equipos y profesionales que quieran acelerar resultados."
+title_i18n: pageCoursesTitle
+lead_i18n: pageCoursesLead
 ---
 
 <div class="row g-3">
@@ -11,8 +13,8 @@ lead: "Formacion tecnica para equipos y profesionales que quieran acelerar resul
     <article class="listing-card p-4 h-100">
       <h2 class="h4 mb-2"><a class="text-decoration-none" href="{{ item.url | relative_url }}">{{ item.title }}</a></h2>
       <p class="mb-2 text-light">{{ item.excerpt }}</p>
-      {% if item.level %}<p class="mb-1"><strong>Nivel:</strong> {{ item.level }}</p>{% endif %}
-      {% if item.duration %}<p class="mb-0"><strong>Duracion:</strong> {{ item.duration }}</p>{% endif %}
+      {% if item.level %}<p class="mb-1"><strong data-i18n="coursesLevelLabel">Nivel:</strong> {{ item.level }}</p>{% endif %}
+      {% if item.duration %}<p class="mb-0"><strong data-i18n="coursesDurationLabel">Duracion:</strong> {{ item.duration }}</p>{% endif %}
     </article>
   </div>
   {% endfor %}
