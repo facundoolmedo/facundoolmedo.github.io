@@ -56,17 +56,41 @@ docker compose down -v
 - `plantillas/`: templates para crear contenido rapido
 - `assets/css/custom.css`: estilo visual principal
 
-## Como agregar contenido
+## Manual rapido: gestionar contenido
 
-### Nuevo post de blog
+Esta seccion explica como publicar contenido nuevo (blog, proyectos, cursos, servicios, tienda) y como manejar idioma EN/ES.
 
-Crear archivo en `_posts/` con formato:
+### Flujo recomendado (siempre igual)
 
-`AAAA-MM-DD-titulo.md`
+1. Crear un archivo nuevo en la carpeta correcta.
+2. Completar front matter (entre `---` y `---`).
+3. Escribir el contenido en Markdown.
+4. Levantar en local con `docker compose up --build` y revisar.
+5. Ajustar textos/resumenes si hace falta.
 
-### Nuevo proyecto
+### Blog (`_posts/`)
 
-Crear archivo Markdown en `_projects/` con front matter:
+- Ruta: `_posts/`
+- Nombre obligatorio: `AAAA-MM-DD-titulo.md`
+
+Ejemplo minimo:
+
+```yaml
+---
+layout: post
+title: "Mi nuevo post"
+excerpt: "Resumen breve del articulo"
+---
+```
+
+Luego agregas el contenido debajo del front matter.
+
+### Proyectos (`_projects/`)
+
+- Ruta: `_projects/`
+- Un archivo `.md` por proyecto
+
+Ejemplo:
 
 ```yaml
 ---
@@ -78,33 +102,44 @@ technologies:
 ---
 ```
 
-### Nuevo servicio
+### Servicios (`_services/`)
 
-Crear archivo en `_services/` con:
+- Ruta: `_services/`
+- Un archivo `.md` por servicio
+
+Ejemplo:
 
 ```yaml
 ---
 title: "Nombre del servicio"
+excerpt: "Que problema resuelve"
 price: "Desde USD 500"
 format: "Remoto / Presencial"
 ---
 ```
 
-### Nuevo curso
+### Cursos (`_courses/`)
 
-Crear archivo en `_courses/` con:
+- Ruta: `_courses/`
+- Un archivo `.md` por curso
+
+Ejemplo:
 
 ```yaml
 ---
 title: "Nombre del curso"
+excerpt: "Que se aprende y para quien"
 level: "Inicial / Intermedio / Avanzado"
 duration: "8 semanas"
 ---
 ```
 
-### Nuevo producto de tienda
+### Tienda (`_products/`)
 
-Crear archivo en `_products/` con:
+- Ruta: `_products/`
+- Un archivo `.md` por pack/producto
+
+Ejemplo:
 
 ```yaml
 ---
@@ -116,13 +151,48 @@ cta_email_subject: "Consulta pack"
 ---
 ```
 
-### Plantilla de post tecnico tipo paso a paso
+### Paginas principales (home, estudios, contacto, etc.)
 
-Usar `plantillas/plantilla-post-proyecto-tecnico.md` como base para nuevos articulos.
+- Archivos raiz como `index.md`, `estudios.md`, `contacto.md`, etc.
+- Se editan directo en esos `.md`.
+- Algunas paginas usan claves de traduccion para titulo/subtitulo:
 
-### Plantilla de producto/pack para tienda
+```yaml
+title_i18n: pageEducationTitle
+lead_i18n: pageEducationLead
+```
 
-Usar `plantillas/plantilla-producto-tienda.md` para publicar nuevos packs en `_products/`.
+### Plantillas utiles
+
+- Post tecnico: `plantillas/plantilla-post-proyecto-tecnico.md`
+- Producto tienda: `plantillas/plantilla-producto-tienda.md`
+
+## Manual rapido: traduccion EN/ES
+
+### Como funciona hoy
+
+- El switch EN/ES usa `assets/js/site.js`.
+- Traduce textos que tengan atributo `data-i18n="clave"`.
+- Tambien traduce `alt` con `data-i18n-alt="clave"`.
+- El diccionario esta en `translations.en` y `translations.es` dentro de `assets/js/site.js`.
+
+### Que idioma usar para cargar contenido
+
+En el estado actual del sitio:
+
+- Contenido estructural de paginas (navbar, titulos, etiquetas, textos con `data-i18n`) SI cambia entre EN/ES.
+- Contenido dinamico de colecciones (`_posts`, `_projects`, `_services`, `_courses`, `_products`) usa los campos del archivo (`title`, `excerpt`, etc.) tal cual, sin cambiar automaticamente por idioma.
+
+Recomendacion practica:
+
+1. Si tu audiencia principal es hispanohablante, carga contenido en espanol como base.
+2. Si queres todo bilingue en colecciones, hay que agregar campos por idioma (por ejemplo `title_en`, `excerpt_en`) y ajustar las plantillas para leer el idioma activo.
+
+### Agregar una traduccion nueva (paso a paso)
+
+1. Agregar la clave en `translations.en` y `translations.es` en `assets/js/site.js`.
+2. Usar esa clave en HTML/Markdown con `data-i18n="miClave"`.
+3. Recargar y probar el boton de idioma.
 
 ## Publicar en GitHub Pages
 
@@ -144,10 +214,10 @@ Editar `_includes/navbar.html`.
 
 Editar `_includes/footer.html`.
 
-### Cambiar foto de perfil en home
+### Cambiar foto de perfil (navbar)
 
 1. Reemplazar `assets/images/profile-placeholder.svg` por tu imagen (por ejemplo `profile.jpg`).
-2. Actualizar el `src` de la imagen en `index.md`.
+2. Actualizar el `src` en `_includes/navbar.html`.
 
 ### Mapa mundial (SVG externo)
 
